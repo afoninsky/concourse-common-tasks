@@ -4,7 +4,6 @@ image_resource:
   type: docker-image
   source:
     # 2do: replace with small image with tar (strip-components) and jq
-    # repository: realguess/jq
     repository: makeomatic/k8s-ci
     tag: "12102018"
 inputs:

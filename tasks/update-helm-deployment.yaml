@@ -4,7 +4,7 @@ image_resource:
   source:
     # 2do: replace with gcloud/helm image, move `configure-gcloud` script to common repo
     repository: makeomatic/k8s-ci
-    tag: "13102018"
+    tag: "12102018"
 inputs:
   - name: image-meta
 run:
