@@ -1,0 +1,18 @@
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    # 2do: replace with gcloud/helm image, move `configure-gcloud` script to common repo
+    repository: makeomatic/k8s-ci
+    tag: "13102018"
+inputs:
+  - name: image-meta
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    . configure-gcloud
+    helm repo add makeomatic https://makeomatic.github.io/helm-charts
+    VERSION=`cat ./image-meta/tag`
+    helm upgrade ${DEPLOYMENT_NAME} makeomatic/microservice --reuse-values --wait --set image.tag=${VERSION}
